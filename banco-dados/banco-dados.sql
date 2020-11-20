@@ -1,4 +1,21 @@
+CREATE DATABASE teste_fc;
+USE teste_fc;
 
+CREATE TABLE medico(
+    id          	INT UNIQUE NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    email 			VARCHAR(35) UNIQUE NOT NULL,
+    nome			VARCHAR(50) NOT NULL,
+    senha			CHAR(60) NOT NULL,
+    data_criacao	DATETIME DEFAULT CURRENT_TIMESTAMP,
+    data_alteracao	DATETIME ON UPDATE CURRENT_TIMESTAMP
+);
 
-# É recomendado que a a estrutura e os dados de exemplos estajam nessa pasta
-
+CREATE TABLE horarios(
+	id 					INT UNIQUE NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    id_medico			INT NOT NULL,
+    data_horario		DATETIME NOT NULL,
+    horario_agendado	TIME NOT NULL,
+    data_criacao		DATETIME DEFAULT CURRENT_TIMESTAMP,
+    data_alteracao		DATETIME ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_medico) REFERENCES medico(id)
+);
