@@ -5,12 +5,12 @@
         <link rel="stylesheet" href="../vendor/components/font-awesome/css/all.css">
         <link rel="stylesheet" href="./styles/reset.css">
         <link rel="stylesheet" href="./styles/variables.css">
+        <link rel="stylesheet" href="./styles/layout.css">
         <link rel="stylesheet" href="./styles/list.css">
-
         <link rel="stylesheet" href="./styles/navbar.css">
 
         <script src="../vendor/components/jquery/jquery.min.js"></script>
-        <script src="./test.js"></script>
+        <script src="./styles/js/index.js"></script>
 
     </head>
 
@@ -23,6 +23,7 @@
         </div>
     </nav>
 
+    <div class="layout-container">
     <?php
         include "./view/index.html";
     ?>
