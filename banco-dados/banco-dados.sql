@@ -19,3 +19,7 @@ CREATE TABLE horarios(
     data_alteracao		TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (id_medico) REFERENCES medico(id)
 );
+
+INSERT INTO horarios(id_medico, data_horario, horario_agendado) VALUES(1, '2020-09-25 09:00', 1);
+
+SELECT medico.id, medico.nome, horarios.data_horario FROM medico INNER JOIN horarios ON medico.id = horarios.id_medico;

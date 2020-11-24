@@ -4,7 +4,8 @@
 * Veja o exemplo:
 */
 
-define("URL", "http://localhost/modelo-teste-facilconsulta.com.br/src/");
+define("URL", "http://localhost/modelo-fc/src/");
+define("URL_ROOT", "http://localhost/modelo-fc/");
 
 /*
 * Exemplo de utilização da URL base no carregamento de arquivo .css:

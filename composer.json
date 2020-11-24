@@ -4,5 +4,10 @@
         "fortawesome/font-awesome": "^5.15",
         "components/font-awesome": "^5.15",
         "components/jquery": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        }
     }
 }
