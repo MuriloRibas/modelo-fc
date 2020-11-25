@@ -31,14 +31,22 @@
     font-size: 12px;
     border: 1px solid var(--color-primary);
     border-radius: 5px;
-    color: var(--color-primary);
+    
     background-color: white;
     cursor: pointer;
 }
 
-.list-container__header-container :last-child {
+.list-container__btn a {
+    color: var(--color-primary);
+    text-decoration: none;
+    margin-left: 0px;
+}
+
+.list-container__btn--last{
     margin-left: 10px;
 }
+
+
 
 .list-container__ul {
     display: flex;
@@ -54,11 +62,16 @@
     margin: 6.5px;
     width: auto;
     border-radius: 5px;
-    color: white;
     background-color: var(--color-primary);
     font-size: 14px;
     font-weight: bold;
     text-align: center
+}
+
+.list-container__ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 @media (min-width: 800px) {
@@ -68,4 +81,8 @@
     .list-container__ul {
        justify-content: flex-start;
     }
+}
+
+.list-container__ul .li-hidden {
+    opacity: 0.4;
 }

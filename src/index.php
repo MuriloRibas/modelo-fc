@@ -3,5 +3,7 @@
     require_once("./config.php");
     require_once("./model/config-banco-dados.php");
     
-    (new \src\core\RouterCore());
+    use src\core\Application;
+
+    $app = new Application();
 ?>

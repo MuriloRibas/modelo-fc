@@ -52,4 +52,12 @@ class Db {
         }
     }
 
+    public function update($table, $values, $condition) {
+        $stmt = "UPDATE $table SET $values WHERE $condition";
+        echo $stmt;
+        $insert = $this->query( $stmt );
+        
+        return;
+    }
+
 }
