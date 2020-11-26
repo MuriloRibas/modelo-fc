@@ -1,5 +1,14 @@
+# Teste para Fácil consulta
+## Tecnologias e lib's:
+  * PHP
+  * jQuery
+  * font-awesome
+-------------------
+
 # Modelo de estrutura
 Modelo de estrutura para o teste de Desenvolvedor do Fácil Consulta
+
+
 
 ## Como usar
 Clone ou faça um Fork desse repositorio.
