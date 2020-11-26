@@ -12,6 +12,8 @@
         <script src="<?php echo URL_ROOT;?>vendor/components/jquery/jquery.min.js"></script>
         <script src="<?php echo URL;?>model/css/js/index.js"></script>
 
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     </head>
 
     <button class="nav-container__button--sandwich">
@@ -19,18 +21,13 @@
     </button>
     <nav class="nav-container">
         <div class="nav-container__content-container">
-            <button class="nav-container__button-primary">Cadastro de médico</button>
+            <button class="nav-container__button-primary"><a class="nav-container__button-primary-a" href="<?php echo URL.'medico/criar' ?>">Cadastro de médico</a></button>
         </div>
     </nav>
-
     <div class="layout-container">
+    
     <?php
         include "../src/view/index.php";
-    ?>
-    
-    <?php /*
-        * É recomendado que todo o carregamente seja feito apartir desse arquivo.
-        */
     ?>
 
 </html>

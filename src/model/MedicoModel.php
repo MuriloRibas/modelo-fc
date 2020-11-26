@@ -14,7 +14,7 @@ class MedicoModel {
 
     public function list() {
         try {
-            $q = $this->db->query("SELECT teste_fc.horarios.id id_horario, teste_fc.medico.id id_medico, teste_fc.medico.nome, GROUP_CONCAT(CONCAT(teste_fc.horarios.id, ',', teste_fc.horarios.data_horario, ',', teste_fc.horarios.horario_agendado) SEPARATOR ';') data_horarios FROM teste_fc.horarios INNER JOIN teste_fc.medico ON teste_fc.horarios.id_medico = teste_fc.medico.id GROUP BY teste_fc.medico.id;");
+            $q = $this->db->query("SELECT teste_fc.horarios.id id_horario, teste_fc.medico.id id_medico, teste_fc.medico.nome, GROUP_CONCAT(CONCAT(teste_fc.horarios.id, ',', DATE_FORMAT(teste_fc.horarios.data_horario, '%d-%m-%Y %H:%i'), ',', teste_fc.horarios.horario_agendado) SEPARATOR ';') data_horarios FROM teste_fc.horarios INNER JOIN teste_fc.medico ON teste_fc.horarios.id_medico = teste_fc.medico.id GROUP BY teste_fc.medico.id;");
             
             return $q->fetchAll();
         } catch(Exception $e) {
@@ -32,9 +32,35 @@ class MedicoModel {
         }
     }
 
+    public function queryOneJoin($id) {
+        try {
+            $q = $this->db->query("SELECT teste_fc.medico.id, teste_fc.medico.nome, GROUP_CONCAT(CONCAT(teste_fc.horarios.id, ',', DATE_FORMAT(teste_fc.horarios.data_horario, '%d-%m-%Y %H:%i'), ',', teste_fc.horarios.horario_agendado) SEPARATOR ';') data_horarios FROM teste_fc.horarios INNER JOIN teste_fc.medico ON teste_fc.horarios.id_medico = teste_fc.medico.id WHERE teste_fc.medico.id = $id;");
+            
+            return $q->fetch();
+        } catch(Exception $e) {
+            echo $e."<br/>";
+        }
+    }
+
     public function update($table, $values, $condition) {
         try {
             $q = $this->db->update($table, $values, $condition);
+        } catch(Exception $e) {
+            echo $e."<br/>";
+        }
+    }
+
+    public function delete($table, $condition) {
+        try {
+            $q = $this->db->delete($table, $condition);
+        } catch(Exception $e) {
+            echo $e."<br/>";
+        }
+    }
+
+    public function insert($table, $values) {
+        try {
+            $q = $this->db->insert($table, $values);
         } catch(Exception $e) {
             echo $e."<br/>";
         }

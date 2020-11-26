@@ -11,7 +11,7 @@
                     <a href="<?php echo URL.'medico/editar/'.$value["id_medico"] ?>">Editar cadastro</a>
                 </button>
                 <button class="list-container__btn list-container__btn--last">
-                    <a href="<?php echo URL.'medico/'.$value["id_medico"].'/horarios/editar' ?>">Configurar horários</a>
+                    <a href="<?php echo URL.'medico/horarios/'.$value["id_medico"] ?>">Configurar horários</a>
                 </button>
             </div>
             <ul class="list-container__ul">
@@ -30,7 +30,6 @@
             </ul>
         </div>
     <?php
-            // }
         }
     ?>
 </div>

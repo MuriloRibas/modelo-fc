@@ -1,0 +1,102 @@
+
+
+.div-container {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.div-container__form, .div-container__horaries {
+    width: 500px;
+    background-color: white;
+    padding: 25px 15px;
+
+}
+
+.div-container__form {
+    margin-right: 20px;
+}
+
+.div-container__form-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-text);
+
+}
+.div-container__name-container{
+    color: var(--color-text);
+    margin: 20px 0px;
+}
+.div-container__name-container h2 {
+    font-size: 18px;
+}
+.div-coontainer__inputs-wrapper {
+    display: flex;
+}
+
+.div-container__name-container :last-child {
+   margin-top: 10px;
+}
+.div-container__form span, .div-container__form label {
+    color: var(--color-text);
+}
+.div-container__form-datepicker {
+    width: 30%;
+    border: 1px solid grey;
+    border-right: 0px;
+    padding: 7.5px;
+}
+.div-container__form-hour {
+    width: 70%;
+    border: 1px solid grey;
+    border-left: 0px;
+    padding: 7.5px;
+
+}
+.div-container__form-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+.div-container__form-actions a {
+    color: var(--color-primary);
+    margin-top: 12.5px;
+    font-size: 13px;
+}
+
+.div-container__submit {
+    padding: 12.5px 25px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.div-container__horaries-remove {
+    color: tomato;
+}
+
+.div-container__horary {
+    color: var(--color-text);
+    width: 100%;
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2px;
+    margin-top: 5px;
+}
+
+.div-container__horaries-title {
+    color: var(--color-text);
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}

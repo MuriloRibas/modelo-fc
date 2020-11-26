@@ -25,6 +25,11 @@
     cursor: pointer;
 }
 
+.nav-container__button-primary-a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
 .nav-container__button--sandwich {
     display: block;
     position: absolute;

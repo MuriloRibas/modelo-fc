@@ -30,7 +30,6 @@ class Db {
     private function connect() {
         $config = $this->driver . ":". "host=" . $this->host . ";dbName=".$this->name.";";
         try {
-            echo 'Ok';
             return new PDO($config, $this->user, $this->pass);
         } catch(PDOException $err) {
             throw new Exception("Erro durante conexão com banco.");
@@ -54,10 +53,22 @@ class Db {
 
     public function update($table, $values, $condition) {
         $stmt = "UPDATE $table SET $values WHERE $condition";
-        echo $stmt;
         $insert = $this->query( $stmt );
         
         return;
+    }
+
+    public function insert($table, $values) {
+        $sql = "INSERT INTO $table VALUES($values)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return;
+    }
+
+    public function delete($table, $condition) {
+        $sql = "DELETE FROM $table WHERE $condition";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
     }
 
 }

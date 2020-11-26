@@ -49,17 +49,12 @@ class Application
         $url = explode('/', $url);
         array_splice($url, 0, 2);
 
-        echo print_r($url);
         $this->url_controller = isset($url[0]) ? $url[0] : null;
         $this->url_action = isset($url[1]) ? $url[1] : null;
 
         unset($url[0], $url[1]);
 
         $this->url_params = array_values($url);
-
-        echo '<br/> Controller: '.$this->url_controller;
-        echo '<br/> Action: '.$this->url_action;
-        echo '<br/> Id: '.print_r($this->url_params).'<br/>';
     }
 }
 ?>
