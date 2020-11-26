@@ -2,7 +2,8 @@
 ## Tecnologias e lib's:
   * PHP
   * jQuery
-  * font-awesome
+  * Composer
+  * Font-awesome
 -------------------
 
 # Modelo de estrutura
