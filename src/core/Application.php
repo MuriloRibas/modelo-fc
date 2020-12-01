@@ -47,14 +47,51 @@ class Application
         $url = trim($_SERVER['REQUEST_URI'], '/');
         $url = filter_var($url, FILTER_SANITIZE_URL);
         $url = explode('/', $url);
-        array_splice($url, 0, 2);
 
-        $this->url_controller = isset($url[0]) ? $url[0] : null;
-        $this->url_action = isset($url[1]) ? $url[1] : null;
+        for ($i = 0; $i < count($url); $i++) {
+            if (strcmp($url[$i], "src") == 0) {
+                array_splice($url, 0, $i);
+            }
+        }
 
-        unset($url[0], $url[1]);
+        $arrLength = count($url);
 
-        $this->url_params = array_values($url);
+        switch ($arrLength) {
+
+            case 1:
+                break;
+            
+            case 2: 
+                $url_controller = count($url) - 1 != -1 ? $url[count($url) - 1] : null;
+
+                $this->url_controller = isset($url_controller) ? $url_controller : null;
+                $this->url_action = isset($url_action) ? $url_action : null;
+        
+                break;
+            case 3: 
+                $url_controller = count($url) - 2 != -1 ? $url[count($url) - 2] : null;
+
+                $url_action = count($url) - 1 != -1 ? $url[count($url) - 1] : null;
+
+                $this->url_controller = isset($url_controller) ? $url_controller : null;
+                $this->url_action = isset($url_action) ? $url_action : null;
+        
+                break;
+
+            case 4: 
+                $url_controller = count($url) - 3 != -1 ? $url[count($url) - 3] : null;
+
+                $url_action = count($url) - 2 != -1 ? $url[count($url) - 2] : null;
+
+                $this->url_controller = isset($url_controller) ? $url_controller : null;
+                $this->url_action = isset($url_action) ? $url_action : null;
+        
+                $this->url_params = [end($url)];
+                break;
+            default:
+                # code...
+                break;
+        }
     }
 }
 ?>

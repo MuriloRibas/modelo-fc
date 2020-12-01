@@ -37,7 +37,6 @@ class Db {
     }
 
     public function query($sql, $data_array = null ) {
-
         $query  = $this->pdo->prepare( $sql );
         $exec   = $query->execute( $data_array );
 
