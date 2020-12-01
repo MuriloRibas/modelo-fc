@@ -1,8 +1,9 @@
 <div class="list-container">
     <?php 
+
         foreach ($data as $key => $value) {
-            // if ($key === 0 || !$data[$key]["id_medico"] === $data[$key - 1]["id"] ) {
                 $horariosArr = explode(";", $value["data_horarios"]);
+
     ?>
         <div class="list-container__doctor">
             <div class="list-container__header-container">
@@ -16,16 +17,18 @@
             </div>
             <ul class="list-container__ul">
                 <?php 
-                    foreach ($horariosArr as $key2 => $value2) {
-                        $horarioArr = explode(",", $value2);
+                        foreach ($horariosArr as $key2 => $value2) {
+                            $horarioArr = explode(",", $value2);
+                            if (count($horarioArr) > 1) {
                 ?>
-                        <li class="<?php echo $horarioArr[2] == 1 ? 'li-show' : 'li-hidden'; ?>" >
-                            <a href="<?php echo URL.'medico/agendar/'.$horarioArr[0] ?>">
-                                <?php echo $horarioArr[1] ?>
-                            </a>
-                        </li>
+                            <li class="<?php echo $horarioArr[2] == 0 ? 'li-show' : 'li-hidden'; ?>" >
+                                <a href="<?php echo URL.'medico/agendar/'.$horarioArr[0] ?>">
+                                    <?php echo $horarioArr[1] ?>
+                                </a>
+                            </li>
                 <?php
-                    }
+                            }
+                        }
                 ?>
             </ul>
         </div>

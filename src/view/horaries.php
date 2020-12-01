@@ -54,26 +54,26 @@
             <div class="div-container__horaries">
                 <h1 class="div-container__horaries-title">Horários configurados</h1>
                 <ul>
+                        <?php
+                            $horariesArr = explode(";", $data["data_horarios"]);
+                            foreach ($horariesArr as $key => $value) {
+                            $horaryArr = explode(",", $value);
+                            if (count($horaryArr) > 1) {
+                        ?>
+
+                                <li class='div-container__horary'>
+                                    <?php echo $horaryArr[1] ?>
+                                    <?php
+                                        if ($horaryArr[2] == 0) {
+                                    ?>    
+                                        <a class="div-container__horaries-remove" href="<?php echo URL."medico/horary_delete/".$horaryArr[0];?>">Remover</a>
+                                    <?php
+                                        }
+                                    ?>
+                                </li>
+
                     <?php
-                        $horariesArr = explode(";", $data["data_horarios"]);
-                        foreach ($horariesArr as $key => $value) {
-                           $horaryArr = explode(",", $value);
-
-                           
-                    ?>
-
-                        <li class='div-container__horary'>
-                            <?php echo $horaryArr[1] ?>
-                            <?php
-                                if ($horaryArr[2] == 0) {
-                            ?>    
-                                <a class="div-container__horaries-remove" href="<?php echo URL."medico/horary_delete/".$horaryArr[0];?>">Remover</a>
-                            <?php
-                                }
-                            ?>
-                        </li>
-
-                    <?php
+                            }
                         }
                     ?>
                 </ul>

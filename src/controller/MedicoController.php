@@ -55,7 +55,8 @@ class MedicoController {
     }
 
     public function agendar($id) {
-        $this->m->update("teste_fc.horarios", "teste_fc.horarios.horario_agendado = 0", "teste_fc.horarios.id = $id");
+        echo "ok";
+        $this->m->update("teste_fc.horarios", "teste_fc.horarios.horario_agendado = 1", "teste_fc.horarios.id = $id");
         $data = $this->m->list();
         return require_once('../src/view/layout.php');
     }
@@ -71,7 +72,7 @@ class MedicoController {
             $year = $dateArr[2];
             $dateArr[2] = $dateArr[0];
             $dateArr[0] = $year;
-            $date = implode("-", $dateArr);
+            $date = implode("/", $dateArr);
             $dateAndHour = $date.' '.$_POST["hour"];
 
             $this->m->insert("teste_fc.horarios(id_medico, data_horario, horario_agendado)", "$id, '$dateAndHour', 0");
@@ -88,8 +89,8 @@ class MedicoController {
     public function horary_delete($id) {
         $this->m->delete("teste_fc.horarios", "teste_fc.horarios.id = $id");
 
-        $data = $this->m->queryOneJoin($id);
-        return require_once('../src/view/horaries.php');
+        $data = $this->m->list();
+        return require_once('../src/view/layout.php');
     }
 
     public function criar() {

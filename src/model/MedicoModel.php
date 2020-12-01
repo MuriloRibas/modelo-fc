@@ -14,7 +14,7 @@ class MedicoModel {
 
     public function list() {
         try {
-            $q = $this->db->query("SELECT teste_fc.horarios.id id_horario, teste_fc.medico.id id_medico, teste_fc.medico.nome, GROUP_CONCAT(CONCAT(teste_fc.horarios.id, ',', DATE_FORMAT(teste_fc.horarios.data_horario, '%d-%m-%Y %H:%i'), ',', teste_fc.horarios.horario_agendado) SEPARATOR ';') data_horarios FROM teste_fc.horarios INNER JOIN teste_fc.medico ON teste_fc.horarios.id_medico = teste_fc.medico.id GROUP BY teste_fc.medico.id;");
+            $q = $this->db->query("SELECT a.id id_medico, a.nome, (SELECT GROUP_CONCAT(CONCAT(b.id, ',', DATE_FORMAT(b.data_horario, '%d-%m-%Y %H:%i'), ',', b.horario_agendado) SEPARATOR ';') AS data_horarios FROM teste_fc.horarios b WHERE b.id_medico = a.id) AS data_horarios FROM teste_fc.medico a;");
             
             return $q->fetchAll();
         } catch(Exception $e) {
